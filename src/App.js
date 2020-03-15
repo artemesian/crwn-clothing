@@ -13,29 +13,30 @@ import './App.css';
 class App extends React.Component {
 	unSubscribeFromAuth = null 
 
-	componentDidMount() {
-		const { setCurrentUser } = this.props;
-
-		this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-			if (userAuth) {
-				const userRef = await createUserProfileDocument(userAuth);
-				
-				userRef.onSnapshot( snapShot => {
-					setCurrentUser({
-							id: snapShot.id,
-							...snapShot.data()
-					})
-				})
-			} else {
-				setCurrentUser(userAuth)
-			}
+	/*componentDidMount() {
+			const { setCurrentUser } = this.props;
 	
-		})
-	}
-
+			this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+				if (userAuth) {
+					const userRef = await createUserProfileDocument(userAuth);
+					
+					userRef.onSnapshot( snapShot => {
+						setCurrentUser({
+								id: snapShot.id,
+								...snapShot.data()
+						})
+					})
+				} else {
+					setCurrentUser(userAuth)
+				}
+		
+			})
+		}
+	*/
 	componentWillUnmount() {
 		this.unSubscribeFromAuth()
 	}
+
 
 	render() {
 		return (
