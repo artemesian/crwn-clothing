@@ -89,7 +89,7 @@ export default class SignIn extends Component {
             required/>
           <CustomButton
             type="submit">
-            SIGN IN
+            SIGN UP
           </CustomButton>
         </form> 
       </div>

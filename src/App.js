@@ -13,7 +13,7 @@ import './App.css';
 class App extends React.Component {
 	unSubscribeFromAuth = null 
 
-	/*componentDidMount() {
+	componentDidMount() {
 			const { setCurrentUser } = this.props;
 	
 			this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
@@ -32,7 +32,7 @@ class App extends React.Component {
 		
 			})
 		}
-	*/
+
 	componentWillUnmount() {
 		this.unSubscribeFromAuth()
 	}
@@ -41,17 +41,17 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-			<Header/>
-			<Switch>
-				<Route exact path='/' component={HomePage}/>
-				<Route path='/shop' component={ShopPage}/>
-				<Route exact path='/signin' render={() => 
-					this.props.currentUser ? 
-					(<Redirect to="/" />)
-					:
-					(<SignInSignUp/>) 
-				}/>
-			</Switch>
+				<Header/>
+				<Switch>
+					<Route exact path='/' component={HomePage}/>
+					<Route path='/shop' component={ShopPage}/>
+					<Route exact path='/signin' render={() => 
+						this.props.currentUser ? 
+						(<Redirect to="/" />)
+						:
+						(<SignInSignUp/>) 
+					}/>
+				</Switch>
 			</div>
 			);
 	}
